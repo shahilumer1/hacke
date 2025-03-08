@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - FUTURE VISION SYSTEM </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+            flex: 1;
+        }
+        #FUTURE-VISION-SYSTEM{
+            background-color: rgba(255, 255, 255, 0.8); 
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(255, 255, 255, 0.959);
+            padding: 20px;
+            margin-top: 20px;
+            background-image: url('client/images/background-small-exitSignLower.jpg');
+            background-size: cover; 
+            background-position: center;
+            
+
+        }
+        h2, h3 {
+            color: #000000;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #f7f1f1; /* Change text color for better readability */
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            padding: 5px 0;
+        }
+        footer {
+            background-color: #000000; /* Dark background for footer */
+            color: rgb(8, 8, 8); 
+            text-align: center;
+            padding: 10px 0;
+            margin-top: auto;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .form-group-lg {
+            margin-top: 20px;
+        }
+        .input-group {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .form-control {
+            width: 300px; /* Set a fixed width for the input */
+        }
+        .btn {
+            margin-left: 5px;
+        }
+        /* New styles for the About section */
+        #about {
+            background-color: rgb(255, 255, 255); /* Black background */
+            color: rgb(2, 2, 2); /* White text */
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+    </style>
+    
+</head>
+<body>
+    <header>
+        <h1>Welcome to FUTURE VISION SYSTEM</h1>
+    </header>
+    
+    <div class="content">
+        <!-- FUTURE-VISION-SYSTEM"-->
+        <div id="FUTURE-VISION-SYSTEM">
+            <h2>About FUTURE VISION SYSTEM</h2>
+            <p class="text-center">
+                Welcome to FUTURE VISION SYSTEM, your go-to platform for discovering your career potential!
+            </p>
+
+            <!-- Search Form -->
+            <div>
+                <form id="search-form" class="form-group-lg">
+                    <h2 id="search-title" class="text-center">Discover your career potential</h2>
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary" ng-click="ctrl.preformSearch()">Go</button>
+                        </span>
+                        <input type="text" ng-model="ctrl.liveSearch"
+                               class="form-control"
+                               placeholder="Enter a job title or industry you are interested in"
+                               typeahead="descObj.description for descObj in ctrl.fieldData.allDescriptions | filter:$viewValue | limitTo:10"
+                               typeahead-on-select="ctrl.preformSearch()">
+                    </div>
+                </form>
+
+                <result-list
+                        ng-if="!ctrl.getFieldId() && ctrl.getSearch().length > 0"
+                        search="ctrl.getSearch()"
+                        descriptions="ctrl.fieldData.allDescriptions"
+                        field-map="ctrl.fieldData.fieldMap">
+                </result-list>
+                <div if-reload-on-change="ctrl.getFieldId() && ctrl.fieldData.fieldMap[ctrl.getFieldId()]">
+                    <field-details field="ctrl.fieldData.fieldMap[ctrl.getFieldId()]">
+                    </field-details>
+                </div>
+            </div>
+        <!-- About This Project Section -->
+        <div id="about">
+            <h2>About This Project</h2>
+            <ul>This FUTURE VISION SYSTEM is designed to help users analyze and visualize sentiment from textual data. By uploading files containing comments or reviews, users can gain insights into the overall sentiment, including positive, negative, and neutral sentiments.</ul>
+            
+            <h3>Key Features</h3>
+
+            <ul>
+                <li>Upload and analyze text files for sentiment analysis.</li>
+                <li>Visualize sentiment distribution using interactive charts.</li>
+                <li>Display results in a user-friendly table format.</li>
+                <li>Support for various file formats.</li>
+            </ul>
+
+            <h3>How It Works</h3>
+
+            <ul>The application utilizes natural language processing (NLP) techniques to classify text sentiments. It processes the uploaded data, calculates sentiment scores, and categorizes each comment as positive, negative, or neutral.</ul>
+
+
+        <!-- Footer Section -->
+        <footer>
+            <p>Built by: TECHNOVA</p>
+            <p>Team Members: Savin, Aqeef, Shahil, Joyline</p>
+            <p>&copy; 2024 CAREER COMPASS. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
